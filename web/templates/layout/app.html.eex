@@ -7,19 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello McEmailArchive!</title>
+    <title>Email Archive</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
       <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
+        <span class="logo"><img src="https://garthtarr.com/wp-content/uploads/2015/10/Fonterra-Logo-500x500px-500x272.jpg" height="80"/>Marketing Cloud Email Archive</span>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

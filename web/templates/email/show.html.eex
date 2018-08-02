@@ -1,0 +1,2 @@
+<h1><%= @email.guid %></h1>
+<pre><%= @email.html %></pre>

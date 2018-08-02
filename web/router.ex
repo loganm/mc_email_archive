@@ -2,25 +2,27 @@ defmodule McEmailArchive.Router do
   use McEmailArchive.Web, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_flash)
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/", McEmailArchive do
-    pipe_through :browser # Use the default browser stack
+    pipe_through(:browser)
 
-    get "/", PageController, :index
+    get("/:guid", EmailController, :show)
+    get("/", HomeController, :index)
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", McEmailArchive do
-  #   pipe_through :api
-  # end
+  scope "/api", McEmailArchive do
+    pipe_through(:api)
+
+    post("/emails", EmailController, :create)
+  end
 end
